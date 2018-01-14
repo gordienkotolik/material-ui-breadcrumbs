@@ -1,7 +1,6 @@
 {
   "name": "material-ui-breadcrumbs",
-  "private": true,
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Breadcrumbs component for React integrated with material-ui package.",
   "main": "index.js",
   "types": "index.d.ts",
@@ -13,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/gordienkotolik/material-ui-customizable-icons.git"
   },
-  "author": "Anatolii Hordiienko <tolig.emale@gmail.com> (https://gasite.in.ua)",
+  "author": "Anatolii Hordiienko <tolig.emale@gmail.com> (https://github.com/gordienkotolik)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/gordienkotolik/material-ui-breadcrumbs/issues"
@@ -102,6 +101,6 @@
     "copy": "cpy package.json ./lib && cpy README.md ./lib && cpy LICENSE ./lib && cpy ./src/typings/index.d.ts ./lib",
 
     "build": "npm run clean && npm run compile && npm run copy",
-    "dist": "cross-env NODE_ENV=production npm run build && cd ./lib && npm publish"
+    "dist": "npm run build && cd ./lib && npm publish"
   }
 }
