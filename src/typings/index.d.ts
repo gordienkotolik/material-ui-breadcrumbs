@@ -2,6 +2,11 @@ import * as React from 'react';
 
 
 declare module 'material-ui-breadcrumbs' {
+  export interface BreadcrumbStep {
+    label: string;
+    uri: string;
+  }
+
   export interface Breadcrumbs {
     className?: string;
     style?: {};

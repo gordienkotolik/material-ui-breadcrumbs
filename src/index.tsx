@@ -39,7 +39,7 @@ const getStyle = function (props: IProps, context: IContext): React.CSSPropertie
   };
 };
 
-export interface IStep {
+export interface BreadcrumbStep {
   label: string;
   uri: string;
 }
@@ -57,7 +57,7 @@ interface IProps extends IStyles {
   customBackgroundStyle?: {};
   customBackground?: React.ReactElement<any>;
   currentStep: string;
-  steps: IStep[];
+  steps: BreadcrumbStep[];
 }
 
 interface IContext {
@@ -76,7 +76,7 @@ export class Breadcrumbs extends React.PureComponent<IProps, any> {
   };
 
   public renderContent() {
-    return this.props.steps.map((step: IStep, index: number) => [
+    return this.props.steps.map((step: BreadcrumbStep, index: number) => [
       (index !== 0 ? (
         <BreadcrumbsSeparator
           key={index + 's'}
