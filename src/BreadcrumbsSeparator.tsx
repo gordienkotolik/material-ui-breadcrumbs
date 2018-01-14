@@ -3,23 +3,30 @@ import * as PropTypes from 'prop-types';
 import ChevronRightIcon from 'material-ui/svg-icons/navigation/chevron-right';
 import {fade} from 'material-ui/utils/colorManipulator';
 
-import {IStyles} from "./typings/index";
+import {IStyles} from "./style";
 
-
-const styles = require('./style.scss');
-const className = styles.layoutBreadcrumbsSeparator;
 
 const getStyle = function (props: IProps, context: IContext): React.CSSProperties {
+  const commonStyle: React.CSSProperties = {
+    margin: 0,
+    padding: 0,
+
+    cursor: 'default',
+  };
   if (props.transparentBackground) {
     return {
       ...context.muiTheme.icon,
       color: fade(context.muiTheme.palette.textColor, 0.7),
+
+      ...commonStyle,
       ...(props.style ? props.style: {}),
     };
   }
   return {
     ...context.muiTheme.icon,
     color: fade(context.muiTheme.appBar.textColor, 0.7),
+
+    ...commonStyle,
     ...(props.style ? props.style: {}),
   };
 };
@@ -40,22 +47,18 @@ export class BreadcrumbsSeparator extends React.PureComponent<IProps, any> {
     muiTheme: PropTypes.object,
   };
 
-  public componentDidMount() {
-    console.info('componentDidMount', this.props);
-  }
-
   public render() {
-    const combinedClassName = (this.props.className ? this.props.className + ' ' : '') + className;
+    const className = this.props.className ? this.props.className : '';
     const style = getStyle(this.props, this.context);
     if (this.props.component) {
       return React.cloneElement(this.props.component, {
-        className: combinedClassName,
+        className,
         style,
       });
     }
     return (
       <ChevronRightIcon
-        className={combinedClassName}
+        className={className}
         style={style}
       />
     );

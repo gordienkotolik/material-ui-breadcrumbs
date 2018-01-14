@@ -2,18 +2,23 @@ import * as React from 'react';
 import Paper from 'material-ui/Paper';
 import * as PropTypes from 'prop-types';
 
-import {IStyles} from "./typings/index";
+import {IStyles} from "./style";
 import {BreadcrumbsItem} from "./BreadcrumbsItem";
 import {BreadcrumbsSeparator} from "./BreadcrumbsSeparator";
 
 
-const styles = require('./style.scss');
-const className = styles.layoutBreadcrumbs;
-
 const getStyle = function (props: IProps, context: IContext): React.CSSProperties {
   const commonStyle: React.CSSProperties = {
+    display: 'flex',
+    flexFlow: 'row nowrap',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+
+    width: '100%',
     height: context.muiTheme.appBar.height,
-    margin: '0',
+    margin: 0,
+    padding: '0 0.5rem',
+
     ...(props.style ? props.style: {}),
   };
   if (props.transparentBackground) {
@@ -70,15 +75,6 @@ export class Breadcrumbs extends React.PureComponent<IProps, any> {
     muiTheme: PropTypes.object,
   };
 
-  public componentDidMount() {
-    console.info('componentDidMount', this.props);
-  }
-
-  public componentWillReceiveProps(nextProps: IProps) {
-    console.info('componentWillReceiveProps', this.props);
-    console.info('componentWillReceiveProps', nextProps);
-  }
-
   public renderContent() {
     return this.props.steps.map((step: IStep, index: number) => [
       (index !== 0 ? (
@@ -106,8 +102,8 @@ export class Breadcrumbs extends React.PureComponent<IProps, any> {
   }
 
   public render() {
+    const className = this.props.className ? this.props.className : '';
     const style = getStyle(this.props, this.context);
-    const combinedClassName = (this.props.className ? this.props.className + ' ' : '') + className;
 
     if (this.props.customBackground) {
       return React.cloneElement(this.props.customBackground, {
@@ -120,7 +116,7 @@ export class Breadcrumbs extends React.PureComponent<IProps, any> {
     if (this.props.transparentBackground) {
       return (
         <nav
-          className={combinedClassName}
+          className={className}
           style={style}
         >
           {this.renderContent()}
@@ -130,7 +126,7 @@ export class Breadcrumbs extends React.PureComponent<IProps, any> {
 
     return (
       <Paper
-        className={combinedClassName}
+        className={className}
         style={style}
         zDepth={2}
         rounded={false}
