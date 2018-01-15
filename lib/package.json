@@ -1,6 +1,6 @@
 {
   "name": "material-ui-breadcrumbs",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "description": "Breadcrumbs component for React integrated with material-ui package.",
   "main": "index.js",
   "types": "index.d.ts",
