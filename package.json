@@ -1,6 +1,6 @@
 {
   "name": "material-ui-breadcrumbs",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Breadcrumbs component for React integrated with material-ui package.",
   "main": "index.js",
   "types": "index.d.ts",
@@ -49,6 +49,7 @@
     "rimraf": "2.6.2",
     "ts-node": "4.0.1",
     "tslib": "1.8.1",
+    "tslint": "5.8.0",
     "typescript": "2.6.2"
   },
   "scripts": {
