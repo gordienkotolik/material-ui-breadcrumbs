@@ -23,7 +23,7 @@
     "breadcrumbs",
     "react"
   ],
-  "homepage": "https://gasite.in.ua/open-source/material-ui-breadcrumbs/",
+  "homepage": "https://github.com/gordienkotolik/material-ui-breadcrumbs",
   "dependencies": {
     "material-ui": "0.20.0",
     "prop-types": "15.6.0",
